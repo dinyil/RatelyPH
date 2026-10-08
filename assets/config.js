@@ -3,6 +3,6 @@
    Find them in: Supabase Dashboard > Project Settings > API (Project URL + anon / publishable key).
    NEVER put the service_role / secret key here. */
 window.RATELY = {
-  SUPABASE_URL: 'https://YOUR-PROJECT-REF.supabase.co',
-  SUPABASE_ANON_KEY: 'YOUR-ANON-OR-PUBLISHABLE-KEY'
+  SUPABASE_URL: 'https://qedyanhjrkzjwqfihbvm.supabase.co',
+  SUPABASE_ANON_KEY: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFlZHlhbmhqcmt6andxZmloYnZtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE0NzQ2MjAsImV4cCI6MjEwNzA1MDYyMH0.JJJIMJRQDdCR_ujWoRVsx477lRwfWd61Q9gkZ8rXV3M'
 };
