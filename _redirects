@@ -1,0 +1,3 @@
+# Netlify + Cloudflare Pages. Real files (assets, admin/, index.html) always win over these rules.
+/admin    /admin/    301
+/*        /index.html          200
