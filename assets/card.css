@@ -133,19 +133,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-of
   .in.reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
 }
 
-/* Top bar: NFC chip + label in one glass pill */
-.top { display: flex; justify-content: center; align-items: center; }
-.pill { --r: 999px; display: inline-flex; align-items: center; gap: 8px; padding: 3px 12px 3px 3px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-.pill-text { position: relative; z-index: 1; }
-.nfc { position: relative; z-index: 1; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); flex: none; }
-.nfc::before, .nfc::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--accent); opacity: 0; animation: pulse 3s ease-out infinite; }
-.nfc::after { animation-delay: 1.5s; }
-.nfc svg { width: 13px; height: 13px; fill: none; stroke: var(--accent-ink); stroke-width: 2; stroke-linecap: round; }
-.nfc path { animation: wave 2.4s ease-in-out infinite; }
-.nfc path:nth-of-type(2) { animation-delay: 0.25s; }
-.nfc path:nth-of-type(3) { animation-delay: 0.5s; }
-.dot { position: relative; z-index: 1; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: blink 2s ease-in-out infinite; }
-@keyframes blink { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--spot); } 50% { opacity: 0.45; box-shadow: 0 0 0 5px transparent; } }
+/* Wave mark (loading / empty states) */
 .mark svg { width: 24px; height: 24px; fill: none; stroke: var(--fg); stroke-width: 1.5; stroke-linecap: round; }
 .mark path { animation: wave 2.4s ease-in-out infinite; }
 .mark path:nth-of-type(2) { animation-delay: 0.25s; }
@@ -179,6 +167,8 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-of
   animation: sheen 7s ease-in-out infinite;
 }
 @keyframes sheen { 0%, 25% { background-position: 100% 0; } 75%, 100% { background-position: 0% 0; } }
+.meta span { display: inline-flex; align-items: center; gap: 6px; }
+.meta svg.i { width: 13px; height: 13px; }
 .meta { display: flex; flex-wrap: wrap; gap: 2px 14px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
 .tagline { margin: 12px 0 0; max-width: 30ch; color: var(--muted); font-size: 17px; line-height: 1.4; }
 
@@ -192,6 +182,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-of
 .svc { align-items: center; text-align: center; }
 .foot { align-items: center; text-align: center; }
 .foot .ticker { align-self: stretch; }
+
+/* Quiet NFC label under the intro */
+.tap { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--muted); }
+.tap svg.i { width: 15px; height: 15px; }
+.tap svg path { animation: wave 2.4s ease-in-out infinite; }
 
 /* Actions */
 .actions { display: flex; flex-direction: column; gap: 14px; }

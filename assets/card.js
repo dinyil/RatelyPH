@@ -25,6 +25,7 @@
     up: 'M7 17L17 7M8 7h9v9',
     check: 'M5 12.5l4.5 4.5L19 7.5',
     copy: 'M8 3h8v4H8zM16 5h2a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2',
+    nfc: 'M8 8.5a5 5 0 0 1 0 7M11.5 6a8.5 8.5 0 0 1 0 12M15 3.5a12 12 0 0 1 0 17',
     phone: 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z',
     text: 'M4 5h16v11H9l-5 4z',
     mail: 'M5 5h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2zM3 7l9 6 9-6',
@@ -208,7 +209,6 @@
 
   /* ───────── views ───────── */
   var WAVE = '<circle cx="12" cy="18" r="1" style="fill:var(--fg)"/><path d="M8.5 14.5a5 5 0 0 1 7 0"/><path d="M5.5 11.5a9 9 0 0 1 13 0"/><path d="M2.5 8.5a13 13 0 0 1 19 0"/>';
-  var WAVE_CHIP = '<circle cx="12" cy="18" r="1.3" style="fill:var(--accent-ink);stroke:none"/><path d="M8.5 14.5a5 5 0 0 1 7 0"/><path d="M5.5 11.5a9 9 0 0 1 13 0"/><path d="M2.5 8.5a13 13 0 0 1 19 0"/>';
   function waveMark() {
     var m = el('span', 'mark');
     m.setAttribute('aria-hidden', 'true');
@@ -248,16 +248,6 @@
 
     var page = el('main', 'page');
 
-    /* top bar */
-    var top = step(el('div', 'top'));
-    var pill = el('span', 'pill glass');
-    var chip = el('span', 'nfc');
-    chip.setAttribute('aria-hidden', 'true');
-    chip.innerHTML = '<svg viewBox="0 0 24 24">' + WAVE_CHIP + '</svg>'; // static markup only
-    add(pill, chip, el('span', 'pill-text', 'Digital card'));
-    top.appendChild(pill);
-    page.appendChild(top);
-
     /* hero */
     var hero = el('header', 'hero');
     var av = step(el('div', 'avatar-wrap'));
@@ -276,10 +266,11 @@
     if (p.handle || p.location) {
       var meta = step(el('div', 'meta'));
       if (p.handle) meta.appendChild(el('span', '', p.handle));
-      if (p.location) meta.appendChild(el('span', '', p.location));
+      if (p.location) meta.appendChild(add(el('span'), icon('pin'), document.createTextNode(p.location)));
       hero.appendChild(meta);
     }
     if (p.tagline) hero.appendChild(step(el('p', 'tagline', p.tagline)));
+    hero.appendChild(step(add(el('div', 'tap'), icon('nfc'), el('span', '', 'NFC · Digital card'))));
     page.appendChild(hero);
 
     /* actions */
