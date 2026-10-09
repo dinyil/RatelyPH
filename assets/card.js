@@ -254,7 +254,7 @@
     var chip = el('span', 'nfc');
     chip.setAttribute('aria-hidden', 'true');
     chip.innerHTML = '<svg viewBox="0 0 24 24">' + WAVE_CHIP + '</svg>'; // static markup only
-    add(pill, chip, el('span', 'pill-text', 'Digital card'), el('span', 'dot'));
+    add(pill, chip, el('span', 'pill-text', 'Digital card'));
     top.appendChild(pill);
     page.appendChild(top);
 

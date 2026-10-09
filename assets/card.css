@@ -135,12 +135,12 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-of
 
 /* Top bar: NFC chip + label in one glass pill */
 .top { display: flex; justify-content: center; align-items: center; }
-.pill { --r: 999px; display: inline-flex; align-items: center; gap: 12px; padding: 6px 18px 6px 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg); }
+.pill { --r: 999px; display: inline-flex; align-items: center; gap: 8px; padding: 3px 12px 3px 3px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
 .pill-text { position: relative; z-index: 1; }
-.nfc { position: relative; z-index: 1; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); flex: none; }
+.nfc { position: relative; z-index: 1; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); flex: none; }
 .nfc::before, .nfc::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--accent); opacity: 0; animation: pulse 3s ease-out infinite; }
 .nfc::after { animation-delay: 1.5s; }
-.nfc svg { width: 20px; height: 20px; fill: none; stroke: var(--accent-ink); stroke-width: 1.7; stroke-linecap: round; }
+.nfc svg { width: 13px; height: 13px; fill: none; stroke: var(--accent-ink); stroke-width: 2; stroke-linecap: round; }
 .nfc path { animation: wave 2.4s ease-in-out infinite; }
 .nfc path:nth-of-type(2) { animation-delay: 0.25s; }
 .nfc path:nth-of-type(3) { animation-delay: 0.5s; }
