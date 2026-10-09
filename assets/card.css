@@ -187,15 +187,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-of
 .meta { justify-content: center; }
 .tagline { margin-inline: auto; }
 .label { text-align: center; }
-.call-main, .row-main { flex-direction: column; justify-content: center; text-align: center; gap: 4px; }
-.row-main { padding: 12px 18px; }
-.call-main { padding: 14px 20px; gap: 2px; }
-.row-main .lead { width: 34px; height: 34px; }
-.row-main .lead svg.i { width: 16px; height: 16px; }
-.call-text { flex: 0 1 auto; align-items: center; text-align: center; }
-.row-main .txt { flex: 0 1 auto; align-items: center; text-align: center; }
-.call-main .tail, .row-main .tail { margin-left: 0; }
-.call-main .tail .a, .row-main .tail .a { display: none; }
 .soc { flex-direction: column; text-align: center; gap: 8px; padding: 16px 12px; }
 .soc .txt { align-items: center; width: 100%; }
 .svc { align-items: center; text-align: center; }
