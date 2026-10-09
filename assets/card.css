@@ -133,16 +133,24 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-of
   .in.reveal { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 45%; }
 }
 
-/* Top bar */
-.top { display: flex; justify-content: space-between; align-items: center; }
-.pill { --r: 999px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: blink 2s ease-in-out infinite; }
+/* Top bar: NFC chip + label in one glass pill */
+.top { display: flex; justify-content: center; align-items: center; }
+.pill { --r: 999px; display: inline-flex; align-items: center; gap: 12px; padding: 6px 18px 6px 6px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fg); }
+.pill-text { position: relative; z-index: 1; }
+.nfc { position: relative; z-index: 1; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--accent); flex: none; }
+.nfc::before, .nfc::after { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 1px solid var(--accent); opacity: 0; animation: pulse 3s ease-out infinite; }
+.nfc::after { animation-delay: 1.5s; }
+.nfc svg { width: 20px; height: 20px; fill: none; stroke: var(--accent-ink); stroke-width: 1.7; stroke-linecap: round; }
+.nfc path { animation: wave 2.4s ease-in-out infinite; }
+.nfc path:nth-of-type(2) { animation-delay: 0.25s; }
+.nfc path:nth-of-type(3) { animation-delay: 0.5s; }
+.dot { position: relative; z-index: 1; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: blink 2s ease-in-out infinite; }
 @keyframes blink { 0%, 100% { opacity: 1; box-shadow: 0 0 0 0 var(--spot); } 50% { opacity: 0.45; box-shadow: 0 0 0 5px transparent; } }
 .mark svg { width: 24px; height: 24px; fill: none; stroke: var(--fg); stroke-width: 1.5; stroke-linecap: round; }
 .mark path { animation: wave 2.4s ease-in-out infinite; }
 .mark path:nth-of-type(2) { animation-delay: 0.25s; }
 .mark path:nth-of-type(3) { animation-delay: 0.5s; }
-@keyframes wave { 0%, 100% { opacity: 0.2; } 40% { opacity: 1; } }
+@keyframes wave { 0%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
 
 /* Hero */
 .hero { display: flex; flex-direction: column; gap: 6px; }
@@ -175,7 +183,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-of
 .tagline { margin: 12px 0 0; max-width: 30ch; color: var(--muted); font-size: 17px; line-height: 1.4; }
 
 /* Everything is centered so each card reads at a glance */
-.top { flex-direction: column; gap: 14px; justify-content: center; }
 .hero { align-items: center; text-align: center; }
 .meta { justify-content: center; }
 .tagline { margin-inline: auto; }

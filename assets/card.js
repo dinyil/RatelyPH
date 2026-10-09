@@ -208,6 +208,7 @@
 
   /* ───────── views ───────── */
   var WAVE = '<circle cx="12" cy="18" r="1" style="fill:var(--fg)"/><path d="M8.5 14.5a5 5 0 0 1 7 0"/><path d="M5.5 11.5a9 9 0 0 1 13 0"/><path d="M2.5 8.5a13 13 0 0 1 19 0"/>';
+  var WAVE_CHIP = '<circle cx="12" cy="18" r="1.3" style="fill:var(--accent-ink);stroke:none"/><path d="M8.5 14.5a5 5 0 0 1 7 0"/><path d="M5.5 11.5a9 9 0 0 1 13 0"/><path d="M2.5 8.5a13 13 0 0 1 19 0"/>';
   function waveMark() {
     var m = el('span', 'mark');
     m.setAttribute('aria-hidden', 'true');
@@ -250,8 +251,11 @@
     /* top bar */
     var top = step(el('div', 'top'));
     var pill = el('span', 'pill glass');
-    add(pill, el('span', 'dot'), document.createTextNode('Digital card'));
-    add(top, pill, waveMark());
+    var chip = el('span', 'nfc');
+    chip.setAttribute('aria-hidden', 'true');
+    chip.innerHTML = '<svg viewBox="0 0 24 24">' + WAVE_CHIP + '</svg>'; // static markup only
+    add(pill, chip, el('span', 'pill-text', 'Digital card'), el('span', 'dot'));
+    top.appendChild(pill);
     page.appendChild(top);
 
     /* hero */
