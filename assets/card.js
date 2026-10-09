@@ -195,7 +195,6 @@
     var scheme = pick(t.scheme, ['auto', 'dark', 'light', 'contrast', 'paper'], 'auto');
     root.setAttribute('data-scheme', scheme);
     root.setAttribute('data-font', pick(t.font, ['grotesk', 'serif', 'mono'], 'grotesk'));
-    root.setAttribute('data-layout', pick(t.layout, ['left', 'center'], 'left'));
     root.setAttribute('data-bg', pick(t.bg, ['orbs', 'grid', 'none'], 'orbs'));
     root.style.removeProperty('--accent');
     root.style.removeProperty('--accent-ink');

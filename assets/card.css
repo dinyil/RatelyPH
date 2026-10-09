@@ -1,5 +1,5 @@
 /* RatelyPH card styles.
-   One stylesheet, many looks: the page sets data-scheme / data-font / data-layout / data-bg
+   One stylesheet, many looks: the page sets data-scheme / data-font / data-bg
    on <html> from the customer's `theme`, plus an optional --accent colour. */
 
 :root {
@@ -174,12 +174,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--fg); outline-of
 .meta { display: flex; flex-wrap: wrap; gap: 2px 14px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
 .tagline { margin: 12px 0 0; max-width: 30ch; color: var(--muted); font-size: 17px; line-height: 1.4; }
 
-/* Centered layout variant */
-:root[data-layout="center"] .hero { align-items: center; text-align: center; }
-:root[data-layout="center"] .meta { justify-content: center; }
-:root[data-layout="center"] .tagline { margin-inline: auto; }
-:root[data-layout="center"] .label { text-align: center; }
-:root[data-layout="center"] .svc { text-align: center; }
+/* Everything is centered so each card reads at a glance */
+.top { flex-direction: column; gap: 14px; justify-content: center; }
+.hero { align-items: center; text-align: center; }
+.meta { justify-content: center; }
+.tagline { margin-inline: auto; }
+.label { text-align: center; }
+.call-text { flex: 1; align-items: center; text-align: center; }
+.row-main .txt { align-items: center; text-align: center; }
+.soc { flex-direction: column; text-align: center; gap: 8px; padding: 16px 12px; }
+.soc .txt { align-items: center; width: 100%; }
+.svc { align-items: center; text-align: center; }
+.foot { align-items: center; text-align: center; }
+.foot .ticker { align-self: stretch; }
 
 /* Actions */
 .actions { display: flex; flex-direction: column; gap: 14px; }

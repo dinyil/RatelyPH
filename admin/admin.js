@@ -16,7 +16,6 @@
   var THEME_OPTS = {
     scheme: [['auto', 'Auto (follows phone)'], ['dark', 'Dark'], ['light', 'Light'], ['contrast', 'High contrast B/W'], ['paper', 'Paper']],
     font: [['grotesk', 'Grotesk (modern)'], ['serif', 'Serif (elegant)'], ['mono', 'Mono (techy)']],
-    layout: [['left', 'Left aligned'], ['center', 'Centered']],
     bg: [['orbs', 'Floating orbs'], ['grid', 'Moving grid'], ['none', 'Plain']]
   };
 
@@ -127,7 +126,7 @@
   /* ───────── editor ───────── */
   function blankProfile() {
     return { id: null, name: '', handle: '', location: '', tagline: '', initials: '', photo_url: '', phone: '', email: '', maps_url: '', review_url: '', notes: '',
-      socials: [], services: [], theme: { scheme: 'auto', font: 'grotesk', layout: 'left', bg: 'orbs' } };
+      socials: [], services: [], theme: { scheme: 'auto', font: 'grotesk', bg: 'orbs' } };
   }
   function socialRow(s) {
     return '<div class="rep-row soc-row">' +
@@ -186,7 +185,6 @@
       '<section class="glass card"><h3>Look of this page</h3><div class="grid4">' +
       '<label class="f">Colors<select name="scheme">' + opts(THEME_OPTS.scheme, th.scheme || 'auto') + '</select></label>' +
       '<label class="f">Font<select name="font">' + opts(THEME_OPTS.font, th.font || 'grotesk') + '</select></label>' +
-      '<label class="f">Layout<select name="layout">' + opts(THEME_OPTS.layout, th.layout || 'left') + '</select></label>' +
       '<label class="f">Background<select name="bg">' + opts(THEME_OPTS.bg, th.bg || 'orbs') + '</select></label></div>' +
       '<div class="sw"><input type="checkbox" id="use-accent"' + (th.accent ? ' checked' : '') + '> Custom accent color ' +
       '<input type="color" name="accent" value="' + esc(th.accent || '#ffffff') + '"> <span class="muted">(leave off for pure black &amp; white)</span></div></section>' +
@@ -208,7 +206,7 @@
     ['name', 'handle', 'location', 'initials', 'phone', 'email', 'maps_url', 'review_url', 'photo_url', 'tagline', 'notes'].forEach(function (k) { d[k] = v(k); });
     d.socials = $$('.soc-row', f).map(function (r) { var o = {}; $$('[data-k]', r).forEach(function (i) { o[i.getAttribute('data-k')] = i.value.trim(); }); return o; });
     d.services = $$('.svc-row', f).map(function (r) { var o = {}; $$('[data-k]', r).forEach(function (i) { o[i.getAttribute('data-k')] = i.value.trim(); }); return o; });
-    d.theme = { scheme: v('scheme'), font: v('font'), layout: v('layout'), bg: v('bg') };
+    d.theme = { scheme: v('scheme'), font: v('font'), bg: v('bg') };
     if ($('#use-accent', f).checked) d.theme.accent = f.elements.accent.value;
     return d;
   }
